@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Dispatch, SetStateAction, Suspense, useRef } from "react";
 import Points from "./Points";
-import { OrbitControls, Stars, Stats, Text3D } from "@react-three/drei";
+import { OrbitControls, Stars, Stats } from "@react-three/drei";
 import Sphere from "./Sphere";
 import {
      Selection,
@@ -15,8 +15,9 @@ import Door from "./Door";
 import Phone from "./Phone";
 import Bookshelf from "./Bookshelf";
 import Laptop from "./Laptop";
+import HomeDoor from "./HomeDoor";
 
-const AnimationCanvas = () => {
+const ProjectsCanvas = () => {
      return (
           <>
                <Canvas camera={{ position: [50, 15, 90], fov: 75 }}>
@@ -54,10 +55,7 @@ const AnimationCanvas = () => {
                               height={50}
                               width={300}
                          />
-                         <Laptop />
-                         <Bookshelf />
-                         <Phone />
-                         <Door />
+                         <HomeDoor />
                          <Selection>
                               <EffectComposer
                                    multisampling={8}
@@ -85,4 +83,4 @@ const AnimationCanvas = () => {
      );
 };
 
-export default AnimationCanvas;
+export default ProjectsCanvas;

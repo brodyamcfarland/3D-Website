@@ -35,7 +35,7 @@ const Bookshelf = () => {
                     Skills
                     <meshNormalMaterial />
                </Text3D>
-               <group ref={ref}>
+               <group ref={ref} name="bookshelf">
                     <Gltf
                          src="/models/bookshelf.gltf"
                          receiveShadow

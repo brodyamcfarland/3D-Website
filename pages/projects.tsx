@@ -1,0 +1,33 @@
+import { AiOutlineDrag } from "react-icons/ai";
+import { CgMouse } from "react-icons/cg";
+import { TbHandClick } from "react-icons/tb";
+import ProjectsCanvas from "../components/ProjectsCanvas";
+
+const Projects = () => {
+     return (
+          <div className="flex flex-col h-screen w-full items-center justify-center bg-black text-white">
+               <div className="hidden z-10 absolute bg-white/5 bottom-10 left-10 md:flex items-center gap-4 border max-w-xl text-sm w-full p-2 backdrop-blur-lg rounded-xl border-gray-900/75 shadow-blue-500/20 shadow-lg hover:border-white/50 duration-300 select-none">
+                    <CgMouse size={40} />
+                    <p className="text-gray-400">Use Scroll Wheel to Zoom</p>
+
+                    <AiOutlineDrag size={50} />
+                    <p className="text-gray-400">
+                         Click and Drag to Move Camera
+                    </p>
+
+                    <TbHandClick size={50} />
+                    <div className="divide-y-[1px] gap-1 flex flex-col items-center justify-center divide-gray-400">
+                         <p className="text-gray-400">
+                              Hover and Click to Move Ball
+                         </p>
+                         <p className="text-gray-400 pt-1">
+                              Double-Click to Reset
+                         </p>
+                    </div>
+               </div>
+               <ProjectsCanvas />
+          </div>
+     );
+};
+
+export default Projects;

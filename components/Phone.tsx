@@ -4,7 +4,7 @@ import { Gltf, Text3D } from "@react-three/drei";
 const Phone = () => {
      const [ref, api] = useCompoundBody(() => ({
           mass: 5,
-          position: [140, 30, 0],
+          position: [140, 4, 0],
           rotation: [0, -Math.PI / 2, 0], // add the difference between Gltf rotation and Y-axis,
           shapes: [
                {
@@ -32,6 +32,7 @@ const Phone = () => {
                     scale={14}
                     rotation={[0, 4.4, 0]}
                     ref={ref}
+                    name="phone"
                />
           </>
      );

@@ -17,12 +17,6 @@ const Laptop = () => {
                     position: [0, 19, -20], // position and size of the first box shape
                },
           ],
-          onCollide: (e) => {
-               if (e.body.name.startsWith("ball")) {
-                    // I want the laptop to fly up a bit when hit
-                    api.applyLocalImpulse;
-               }
-          },
      }));
 
      return (

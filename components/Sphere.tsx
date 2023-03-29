@@ -1,13 +1,20 @@
 import { useTexture } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { LinearEncoding, Vector3 } from "three";
 import { Select } from "@react-three/postprocessing";
 import { useSphere } from "@react-three/cannon";
 import { Mesh } from "three";
+import { useRouter } from "next/router";
 
-const Sphere = () => {
+interface Props {
+     setLoading?: Dispatch<SetStateAction<boolean>>;
+}
+
+const Sphere = ({ setLoading }: Props) => {
      const [hoverEffect, setHoverEffect] = useState<boolean>(false);
+     const router = useRouter();
+
      const [physicsRef, api] = useSphere<any>(() => ({
           args: [20],
           mass: 30,
@@ -15,9 +22,54 @@ const Sphere = () => {
           angularDamping: 1,
           onCollide: (e) => {
                if (e.body.name.startsWith("laptop")) {
-                    console.log("collided with laptop");
+                    if (setLoading) {
+                         setLoading(true);
+                    }
                     api.position.set(0, 20, 0);
                     api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("/projects");
+                    }, 3000);
+               }
+               if (e.body.name.startsWith("phone")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("/contact");
+                    }, 3000);
+               }
+               if (e.body.name.startsWith("bookshelf")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("/skills");
+                    }, 3000);
+               }
+               if (e.body.name.startsWith("door")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://website-v3-orcin.vercel.app/");
+                    }, 3000);
+               }
+               if (e.body.name.startsWith("home_door")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("/");
+                    }, 3000);
                }
           },
      }));
@@ -35,7 +87,6 @@ const Sphere = () => {
 
      const { gl, camera } = useThree();
 
-     //Need to Fix this
      const pushSphere = (e: any) => {
           const direction = new Vector3();
           const worldPoint = new Vector3();
