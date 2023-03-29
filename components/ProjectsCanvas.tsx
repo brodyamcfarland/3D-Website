@@ -11,13 +11,13 @@ import {
 import { Physics, Debug } from "@react-three/cannon";
 import FloorPlane from "./FloorPlane";
 import WallPlane from "./WallPlane";
-import Door from "./Door";
-import Phone from "./Phone";
-import Bookshelf from "./Bookshelf";
-import Laptop from "./Laptop";
 import HomeDoor from "./HomeDoor";
 
-const ProjectsCanvas = () => {
+interface Props {
+     setLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const ProjectsCanvas = ({ setLoading }: Props) => {
      return (
           <>
                <Canvas camera={{ position: [50, 15, 90], fov: 75 }}>
@@ -68,7 +68,7 @@ const ProjectsCanvas = () => {
                                         width={10000}
                                    />
                               </EffectComposer>
-                              <Sphere />
+                              <Sphere setLoading={setLoading} />
                          </Selection>
                          <OrbitControls
                               maxPolarAngle={Math.PI / 2}
