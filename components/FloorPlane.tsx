@@ -3,7 +3,9 @@ import { MeshReflectorMaterial } from "@react-three/drei";
 
 const FloorPlane = () => {
      const [ref] = usePlane<any>(() => ({
+          type: "Static",
           rotation: [-Math.PI / 2, 0, 0],
+          args: [300, 300],
      }));
 
      return (

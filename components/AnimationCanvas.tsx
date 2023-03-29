@@ -1,16 +1,20 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Points from "./Points";
-import { Gltf, OrbitControls, Stars, Stats, Text3D } from "@react-three/drei";
+import { OrbitControls, Stars, Stats, Text3D } from "@react-three/drei";
 import Sphere from "./Sphere";
 import {
      Selection,
      EffectComposer,
      Outline,
 } from "@react-three/postprocessing";
-import { Physics } from "@react-three/cannon";
+import { Physics, Debug } from "@react-three/cannon";
 import FloorPlane from "./FloorPlane";
 import WallPlane from "./WallPlane";
+import Door from "./Door";
+import Phone from "./Phone";
+import Bookshelf from "./Bookshelf";
+import Laptop from "./Laptop";
 
 const AnimationCanvas = () => {
      return (
@@ -21,10 +25,10 @@ const AnimationCanvas = () => {
                          position={[0, 100, -10]}
                     />
                     <pointLight position={[100, 100, 0]} />
-                    <Physics>
-                         <Suspense fallback={null}>
-                              <Points />
-                         </Suspense>
+                    <Suspense fallback={null}>
+                         <Points />
+                    </Suspense>
+                    <Physics gravity={[0, -15, 0]}>
                          <FloorPlane />
                          <WallPlane
                               position={[0, 25, -150]}
@@ -50,80 +54,10 @@ const AnimationCanvas = () => {
                               height={50}
                               width={300}
                          />
-                         <Text3D
-                              font={"/3dFonts/Roboto.json"}
-                              position={[-26, 34, -145]}
-                              size={10}
-                         >
-                              Projects
-                              <meshNormalMaterial />
-                         </Text3D>
-                         <Gltf
-                              src="/models/laptop.gltf"
-                              receiveShadow
-                              castShadow
-                              position={[0, -5, -122]}
-                              scale={14}
-                         />
-                         <Text3D
-                              font={"/3dFonts/Roboto.json"}
-                              position={[-143, 43, 18]}
-                              rotation={[0, Math.PI / 2, 0]}
-                              size={10}
-                         >
-                              Skills
-                              <meshNormalMaterial />
-                         </Text3D>
-                         <Gltf
-                              src="/models/bookshelf.gltf"
-                              receiveShadow
-                              castShadow
-                              position={[-143, 0, 0]}
-                              scale={21}
-                              rotation={[0, Math.PI / 2, 0]}
-                         />
-                         <Gltf
-                              src="/models/keyboard.gltf"
-                              receiveShadow
-                              castShadow
-                              position={[-137, 0, 0]}
-                              scale={12}
-                              rotation={[0, Math.PI / 2, 0]}
-                         />
-                         <Text3D
-                              font={"/3dFonts/Roboto.json"}
-                              position={[140, 50, -23]}
-                              rotation={[0, -Math.PI / 2, 0]}
-                              size={10}
-                         >
-                              Contact
-                              <meshNormalMaterial />
-                         </Text3D>
-                         <Gltf
-                              src="/models/phone.gltf"
-                              receiveShadow
-                              castShadow
-                              position={[140, 6, 0]}
-                              scale={14}
-                              rotation={[0, 4.4, 0]}
-                         />
-                         <Text3D
-                              font={"/3dFonts/Roboto.json"}
-                              position={[33, 50, 147]}
-                              rotation={[0, -Math.PI, 0]}
-                              size={8}
-                         >
-                              Return to 2-D
-                              <meshNormalMaterial />
-                         </Text3D>
-                         <Gltf
-                              src="/models/door.gltf"
-                              receiveShadow
-                              castShadow
-                              position={[0, 0.5, 147]}
-                              rotation={[0, -Math.PI, 0]}
-                              scale={18}
-                         />
+                         <Laptop />
+                         <Bookshelf />
+                         <Phone />
+                         <Door />
                          <Selection>
                               <EffectComposer
                                    multisampling={8}

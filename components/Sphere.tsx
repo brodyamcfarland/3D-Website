@@ -8,23 +8,19 @@ import { Mesh } from "three";
 
 const Sphere = () => {
      const [hoverEffect, setHoverEffect] = useState<boolean>(false);
-     const [physicsRef, api] = useSphere<any>(
-          () => ({
-               args: [0.75],
-               mass: 10,
-               position: [0, 0, 0],
-               angularVelocity: [0, 0, 0],
-               angularDamping: 1,
-               onCollide: (e) => {
-                    if (e.body.name.startsWith("wall")) {
-                         console.log("collided");
-                         api.position.set(0, 0, 0);
-                         api.velocity.set(0, 0, 0);
-                    }
-               },
-          }),
-          useRef()
-     );
+     const [physicsRef, api] = useSphere<any>(() => ({
+          args: [20],
+          mass: 30,
+          position: [0, 20, 0],
+          angularDamping: 1,
+          onCollide: (e) => {
+               if (e.body.name.startsWith("laptop")) {
+                    console.log("collided with laptop");
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+               }
+          },
+     }));
 
      const sphereTextures = useTexture({
           map: "/textures/slab_tiles_diff_4k.jpg",
@@ -63,6 +59,11 @@ const Sphere = () => {
           );
      };
 
+     const resetSphere = (e: any) => {
+          api.position.set(0, 20, 0);
+          api.velocity.set(0, 0, 0);
+     };
+
      useFrame(() => {
           if (!hoverEffect && meshRef.current) {
                meshRef.current.rotation.x += 0.005;
@@ -85,11 +86,12 @@ const Sphere = () => {
                     ref={physicsRef}
                     castShadow
                     onPointerDown={(e) => pushSphere(e)}
+                    name="ball"
+                    onDoubleClick={(e) => resetSphere(e)}
                >
                     <mesh
                          visible
                          ref={meshRef}
-                         position={[0, 19.5, 0]}
                          onPointerOver={() => {
                               setHoverEffect(true);
                          }}
