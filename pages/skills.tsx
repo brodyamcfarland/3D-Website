@@ -4,6 +4,7 @@ import { TbHandClick } from "react-icons/tb";
 import ProjectsCanvas from "../components/ProjectsCanvas";
 import { useState } from "react";
 import { BarLoader } from "react-spinners";
+import SkillsCanvas from "../components/SkillsCanvas";
 
 const Skills = () => {
      const [loading, setLoading] = useState<boolean>(false); // Controls if the loading spinner will show
@@ -31,7 +32,7 @@ const Skills = () => {
                          <p className="animate-pulse">Loading</p>
                     </div>
                )}
-               <ProjectsCanvas setLoading={setLoading} />
+               <SkillsCanvas setLoading={setLoading} />
           </div>
      );
 };
