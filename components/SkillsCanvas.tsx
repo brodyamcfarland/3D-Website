@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Dispatch, SetStateAction, Suspense, useRef } from "react";
 import Points from "./Points";
-import { OrbitControls, Stars, Stats } from "@react-three/drei";
+import { Gltf, OrbitControls, Stars, Stats } from "@react-three/drei";
 import Sphere from "./Sphere";
 import {
      Selection,
@@ -58,6 +58,13 @@ const SkillsCanvas = ({ setLoading }: Props) => {
                          />
                          <HomeDoor />
                          <SkillsBalls />
+                         <Gltf
+                              src="/models/reactlogo.gltf"
+                              receiveShadow
+                              castShadow
+                              scale={25}
+                              position={[0, 40, -120]}
+                         />
                          <Selection>
                               <EffectComposer
                                    multisampling={8}
