@@ -13,13 +13,13 @@ import FloorPlane from "./FloorPlane";
 import WallPlane from "./WallPlane";
 import HomeDoor from "./HomeDoor";
 import SkillsBalls from "./SkillsBalls";
-import SpinningReact from "./SpinningReact";
+import ProjectCards from "./ProjectCards";
 
 interface Props {
      setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const SkillsCanvas = ({ setLoading }: Props) => {
+const ContactCanvas = ({ setLoading }: Props) => {
      return (
           <>
                <Canvas camera={{ position: [50, 15, 90], fov: 75 }}>
@@ -58,8 +58,7 @@ const SkillsCanvas = ({ setLoading }: Props) => {
                               width={300}
                          />
                          <HomeDoor />
-                         <SkillsBalls />
-                         <SpinningReact />
+                         <ProjectCards />
                          <Selection>
                               <EffectComposer
                                    multisampling={8}
@@ -87,4 +86,4 @@ const SkillsCanvas = ({ setLoading }: Props) => {
      );
 };
 
-export default SkillsCanvas;
+export default ContactCanvas;

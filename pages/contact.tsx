@@ -1,9 +1,9 @@
 import { AiOutlineDrag } from "react-icons/ai";
 import { CgMouse } from "react-icons/cg";
 import { TbHandClick } from "react-icons/tb";
-import ProjectsCanvas from "../components/ProjectsCanvas";
 import { useState } from "react";
 import { BarLoader } from "react-spinners";
+import ContactCanvas from "../components/ContactCanvas";
 
 const Contact = () => {
      const [loading, setLoading] = useState<boolean>(false); // Controls if the loading spinner will show
@@ -31,7 +31,7 @@ const Contact = () => {
                          <p className="animate-pulse">Loading</p>
                     </div>
                )}
-               <ProjectsCanvas setLoading={setLoading} />
+               <ContactCanvas setLoading={setLoading} />
           </div>
      );
 };

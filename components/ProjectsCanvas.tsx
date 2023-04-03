@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Dispatch, SetStateAction, Suspense, useRef } from "react";
+import { Dispatch, SetStateAction, Suspense } from "react";
 import Points from "./Points";
 import { OrbitControls, Stars, Stats } from "@react-three/drei";
 import Sphere from "./Sphere";
@@ -12,6 +12,7 @@ import { Physics, Debug } from "@react-three/cannon";
 import FloorPlane from "./FloorPlane";
 import WallPlane from "./WallPlane";
 import HomeDoor from "./HomeDoor";
+import ProjectCards from "./ProjectCards";
 
 interface Props {
      setLoading: Dispatch<SetStateAction<boolean>>;
@@ -30,53 +31,61 @@ const ProjectsCanvas = ({ setLoading }: Props) => {
                          <Points />
                     </Suspense>
                     <Physics gravity={[0, -15, 0]}>
-                         <FloorPlane />
-                         <WallPlane
-                              position={[0, 25, -150]}
-                              rotation={[0, 0, 0]}
-                              height={50}
-                              width={300}
-                         />
-                         <WallPlane
-                              position={[150, 25, 0]}
-                              rotation={[0, -Math.PI / 2, 0]}
-                              height={50}
-                              width={300}
-                         />
-                         <WallPlane
-                              position={[-150, 25, 0]}
-                              rotation={[0, Math.PI / 2, 0]}
-                              height={50}
-                              width={300}
-                         />
-                         <WallPlane
-                              position={[0, 25, 150]}
-                              rotation={[0, Math.PI, 0]}
-                              height={50}
-                              width={300}
-                         />
-                         <HomeDoor />
-                         <Selection>
-                              <EffectComposer
-                                   multisampling={8}
-                                   autoClear={false}
-                              >
-                                   <Outline
-                                        blur
-                                        visibleEdgeColor={0x09991}
-                                        edgeStrength={100}
-                                        width={10000}
-                                   />
-                              </EffectComposer>
-                              <Sphere setLoading={setLoading} />
-                         </Selection>
-                         <OrbitControls
-                              maxPolarAngle={Math.PI / 2}
-                              rotateSpeed={0.5}
-                              minDistance={50}
-                         />
-                         <Stats />
-                         <Stars fade count={1000} speed={1.4} saturation={1} />
+                         <Debug color="white">
+                              <FloorPlane />
+                              <WallPlane
+                                   position={[0, 25, -150]}
+                                   rotation={[0, 0, 0]}
+                                   height={50}
+                                   width={300}
+                              />
+                              <WallPlane
+                                   position={[150, 25, 0]}
+                                   rotation={[0, -Math.PI / 2, 0]}
+                                   height={50}
+                                   width={300}
+                              />
+                              <WallPlane
+                                   position={[-150, 25, 0]}
+                                   rotation={[0, Math.PI / 2, 0]}
+                                   height={50}
+                                   width={300}
+                              />
+                              <WallPlane
+                                   position={[0, 25, 150]}
+                                   rotation={[0, Math.PI, 0]}
+                                   height={50}
+                                   width={300}
+                              />
+                              <HomeDoor />
+                              <ProjectCards />
+                              <Selection>
+                                   <EffectComposer
+                                        multisampling={8}
+                                        autoClear={false}
+                                   >
+                                        <Outline
+                                             blur
+                                             visibleEdgeColor={0x09991}
+                                             edgeStrength={100}
+                                             width={10000}
+                                        />
+                                   </EffectComposer>
+                                   <Sphere setLoading={setLoading} />
+                              </Selection>
+                              <OrbitControls
+                                   maxPolarAngle={Math.PI / 2}
+                                   rotateSpeed={0.5}
+                                   minDistance={50}
+                              />
+                              <Stats />
+                              <Stars
+                                   fade
+                                   count={1000}
+                                   speed={1.4}
+                                   saturation={1}
+                              />
+                         </Debug>
                     </Physics>
                </Canvas>
           </>

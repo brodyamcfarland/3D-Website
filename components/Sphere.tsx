@@ -29,7 +29,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
                          router.push("/projects");
-                    }, 3000);
+                    }, 1000);
                }
                if (e.body.name.startsWith("phone")) {
                     if (setLoading) {
@@ -39,7 +39,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
                          router.push("/contact");
-                    }, 3000);
+                    }, 1000);
                }
                if (e.body.name.startsWith("bookshelf")) {
                     if (setLoading) {
@@ -49,7 +49,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
                          router.push("/skills");
-                    }, 3000);
+                    }, 1000);
                }
                if (e.body.name.startsWith("door")) {
                     if (setLoading) {
@@ -59,7 +59,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
                          router.push("https://website-v3-orcin.vercel.app/");
-                    }, 3000);
+                    }, 1000);
                }
                if (e.body.name.startsWith("home_door")) {
                     if (setLoading) {
@@ -69,7 +69,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
                          router.push("/");
-                    }, 3000);
+                    }, 1000);
                }
           },
      }));
