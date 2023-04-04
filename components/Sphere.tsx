@@ -71,6 +71,48 @@ const Sphere = ({ setLoading }: Props) => {
                          router.push("/");
                     }, 1000);
                }
+               if (e.body.name.startsWith("portfolio")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://website-v3-orcin.vercel.app/");
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("coincamp")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://coin-camp-jade.vercel.app/");
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("get")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push(
+                              "https://shopping-sepia-seven.vercel.app/"
+                         );
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("shipped")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://shipped.vercel.app/");
+                    }, 1000);
+               }
           },
      }));
 

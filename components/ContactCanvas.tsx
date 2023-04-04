@@ -58,7 +58,7 @@ const ContactCanvas = ({ setLoading }: Props) => {
                               width={300}
                          />
                          <HomeDoor />
-                         <ProjectCards />
+
                          <Selection>
                               <EffectComposer
                                    multisampling={8}
