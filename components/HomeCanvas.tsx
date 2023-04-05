@@ -15,10 +15,20 @@ import Door from "./Door";
 import Phone from "./Phone";
 import Bookshelf from "./Bookshelf";
 import Laptop from "./Laptop";
+import { Howl } from "howler";
 
 interface Props {
      setLoading: Dispatch<SetStateAction<boolean>>;
 }
+
+//Future State: remove autoplay and add in a hittable object that turns music on
+
+const music = new Howl({
+     src: ["/music/bgmusic.mp3"],
+     autoplay: true,
+     volume: 0.2,
+     loop: true,
+});
 
 const HomeCanvas = ({ setLoading }: Props) => {
      return (

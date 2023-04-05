@@ -1,11 +1,5 @@
 import { useBox } from "@react-three/cannon";
 import { Box, Text3D, useTexture } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three";
-
-// Create Links to all of the projects in the sphere component
-// You will need to give all of the meshes a unique name to be called by the onCollide function
-// Create Custom textures for all of the website faces
 
 const ProjectCards = () => {
      // Physics
@@ -44,7 +38,7 @@ const ProjectCards = () => {
           args: [10, 80, 50],
      }));
 
-     // Textures for front face
+     // Textures
 
      const textures = [
           "/textures/project_textures/coincamp.png",
