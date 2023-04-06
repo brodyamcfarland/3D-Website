@@ -150,8 +150,7 @@ const Sphere = ({ setLoading }: Props) => {
                     api.position.set(0, 20, 0);
                     api.velocity.set(0, 0, 0);
                     setTimeout(() => {
-                         const mailtoLink = `mailto:brodyamcfarland@gmail.com`;
-                         window.location.href = mailtoLink;
+                         router.push("https://website-v3-orcin.vercel.app/");
                     }, 1000);
                }
           },
