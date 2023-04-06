@@ -113,6 +113,47 @@ const Sphere = ({ setLoading }: Props) => {
                          router.push("https://shipped.vercel.app/");
                     }, 1000);
                }
+               if (e.body.name.startsWith("github")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://github.com/brodyamcfarland");
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("linkedin")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push(
+                              "https://www.linkedin.com/in/brody-mcfarland-93a91b106/"
+                         );
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("twitter")) {
+                    if (setLoading) {
+                         setLoading(true);
+                    }
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         router.push("https://twitter.com/off2eth");
+                    }, 1000);
+               }
+               if (e.body.name.startsWith("email_laptop")) {
+                    // Need to Add a link to a new page that can use nodemailer or emailjs, then have an option to return to home
+                    api.position.set(0, 20, 0);
+                    api.velocity.set(0, 0, 0);
+                    setTimeout(() => {
+                         const mailtoLink = `mailto:brodyamcfarland@gmail.com`;
+                         window.location.href = mailtoLink;
+                    }, 1000);
+               }
           },
      }));
 
