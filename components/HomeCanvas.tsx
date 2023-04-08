@@ -24,7 +24,7 @@ interface Props {
 //Future State: remove autoplay and add in a hittable object that turns music on
 
 const music = new Howl({
-     src: ["/music/bgmusic.mp3"],
+     src: ["/music/distnt.wav"],
      autoplay: true,
      volume: 0.2,
      loop: true,
